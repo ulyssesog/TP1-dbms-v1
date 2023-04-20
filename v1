@@ -1,0 +1,28 @@
+Table Etudiants {
+  immatriculation integer [primary key]
+  nom varchar
+  prenom varchar
+  email varchar
+  natel integer
+}
+
+Table Professeurs { 
+  nom varchar [primary key]
+  prenom varchar
+  email varchar
+  bureau integer
+}
+
+Table cours {
+  cours_id integer [primary key]
+  nom varchar
+}
+
+Table inscriptions {
+  student_id integer
+  cours_id integer
+}
+
+Ref: inscriptions.student_id > Etudiants.immatriculation
+Ref: inscriptions.cours_id > cours.cours_id
+Ref: cours.cours_id > Professeurs.nom
