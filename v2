@@ -1,4 +1,3 @@
-
 Table Etudiants {
   immatriculation integer [primary key]
   nom varchar
@@ -39,6 +38,6 @@ Table notes {
 Ref: inscriptions.student_id > Etudiants.immatriculation
 Ref: inscriptions.cours_id > cours.cours_id
 Ref: cours.cours_id > Professeurs.nom
-Ref: details_notes.note_recue > inscriptions.cours_id
+Ref: details_notes.note_recue > cours.cours_id
 Ref: notes.notes_finales > details_notes.moyenne_de_notes
 
