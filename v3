@@ -16,6 +16,7 @@ Table Professeurs {
 Table cours {
   cours_id integer [primary key]
   nom varchar
+  notes_evaluations float
 }
 
 Table inscriptions {
@@ -24,11 +25,14 @@ Table inscriptions {
 }
 
 Table details_notes {
-  notes integer [primary key]
-  nombres_evaluations integer
-  date_evaluation integer
-  note_recue integer
-  poids_note_dans_moyenne integer
+  date_evaluation timestape
+  note_recue float
+  poids_note_dans_moyenne float
+  nombre_evaluations integer
+  moyenne_de_notes float
+}
+Table notes {
+  notes_finales_arrondies integer
 }
 Table assisstants {
   assisstants_id vachar [primary key]
@@ -39,6 +43,9 @@ Table assisstants {
 Ref: inscriptions.student_id > Etudiants.immatriculation
 Ref: inscriptions.cours_id > cours.cours_id
 Ref: cours.cours_id > Professeurs.nom
-Ref: details_notes.notes > inscriptions.cours_id
+Ref: details_notes.note_recue > cours.notes_evaluations
+Ref: notes.notes_finales_arrondies > details_notes.moyenne_de_notes
 Ref: assisstants.assisstants_id > Etudiants.immatriculation
 Ref: inscriptions.cours_id > assisstants.assisstants_id
+
+
