@@ -1,3 +1,4 @@
+
 Table Etudiants {
   immatriculation integer [primary key]
   nom varchar
@@ -24,15 +25,19 @@ Table inscriptions {
 }
 
 Table details_notes {
-  note integer [primary key]
-  nombres_evaluations integer
-  date_evaluation integer
-  note_recue integer
-  poids_note_dans_moyenne integer
+  date_evaluation timestape
+  note_recue float
+  poids_note_dans_moyenne float
+  moyenne_de_notes integer
 }
+Table notes {
+  notes_finales integer
+}
+
 
 Ref: inscriptions.student_id > Etudiants.immatriculation
 Ref: inscriptions.cours_id > cours.cours_id
 Ref: cours.cours_id > Professeurs.nom
-Ref: details_notes.note > inscriptions.cours_id
+Ref: details_notes.note_recue > inscriptions.cours_id
+Ref: notes.notes_finales > details_notes.moyenne_de_notes
 
