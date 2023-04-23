@@ -28,6 +28,7 @@ Table details_notes {
   date_evaluation timestape
   note_recue float
   poids_note_dans_moyenne float
+  nombre_evaluations integer
   moyenne_de_notes integer
 }
 Table notes {
