@@ -28,7 +28,7 @@ Table details_notes {
   note_recue float
   poids_note_dans_moyenne float
   nombre_evaluations integer
-  moyenne_de_notes integer
+  moyenne_de_notes float
 }
 Table notes {
   notes_finales integer
