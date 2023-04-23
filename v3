@@ -4,6 +4,7 @@ Table Etudiants {
   prenom varchar
   email varchar
   natel integer
+  assisstant_id integer
 }
 
 Table Professeurs { 
@@ -16,6 +17,7 @@ Table Professeurs {
 Table cours {
   cours_id integer [primary key]
   professeur_id integer
+  assisstants_id integer
   nom varchar
   notes_evaluations float
 }
@@ -38,8 +40,11 @@ Table notes {
 }
 Table assisstants {
   assisstants_id vachar [primary key]
-  numero_de_bureau integer
-  nombres_assisstants vachar
+  immatriculation_assisstant integer 
+  nom varchar
+  prenom varchar
+  email varchar
+  bureau integer
 }
 
 Ref: inscriptions.student_id > Etudiants.immatriculation
@@ -47,6 +52,6 @@ Ref: inscriptions.cours_id > cours.professeur_id
 Ref: cours.cours_id > Professeurs.nom
 Ref: details_notes.note_recue > cours.notes_evaluations
 Ref: notes.notes_finales_arrondies > details_notes.moyenne_de_notes
-Ref: assisstants.assisstants_id > Etudiants.immatriculation
-Ref: inscriptions.cours_id > assisstants.assisstants_id
+Ref: assisstants.assisstants_id < Etudiants.assisstant_id
+Ref: cours.assisstants_id < assisstants.assisstants_id
 Ref: details_notes.id_student > Etudiants.immatriculation
