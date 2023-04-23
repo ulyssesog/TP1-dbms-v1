@@ -15,6 +15,7 @@ Table Professeurs {
 
 Table cours {
   cours_id integer [primary key]
+  prof_id varchar
   nom varchar
 }
 
@@ -25,4 +26,4 @@ Table inscriptions {
 
 Ref: inscriptions.student_id > Etudiants.immatriculation
 Ref: inscriptions.cours_id > cours.cours_id
-Ref: cours.cours_id > Professeurs.nom
+Ref: cours.prof_id > Professeurs.nom
